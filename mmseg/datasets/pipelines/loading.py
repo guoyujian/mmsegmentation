@@ -146,7 +146,9 @@ class LoadAnnotations(object):
             # https://github.com/open-mmlab/mmsegmentation/pull/1445/
             gt_semantic_seg_copy = gt_semantic_seg.copy()
             for old_id, new_id in results['label_map'].items():
-                gt_semantic_seg[gt_semantic_seg_copy == old_id] = new_id
+                # gt_semantic_seg[gt_semantic_seg_copy == old_id] = new_id
+                gt_semantic_seg[gt_semantic_seg_copy == old_id*255] = new_id
+
         results['gt_semantic_seg'] = gt_semantic_seg
         results['seg_fields'].append('gt_semantic_seg')
         return results

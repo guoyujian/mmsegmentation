@@ -325,3 +325,9 @@ def get_palette(dataset):
     else:
         raise TypeError(f'dataset must a str, but got {type(dataset)}')
     return labels
+
+def mel_classes():
+    return ['bg','lesion']
+def mel_palette():
+    return [[0, 0, 0], [255, 255, 255]]
+
